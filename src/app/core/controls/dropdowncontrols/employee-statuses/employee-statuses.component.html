@@ -1,0 +1,35 @@
+@let employeeStatuses = employeeStatuses$ | async;
+
+<mat-form-field class="lbl-detail">
+    <mat-label>Status</mat-label>
+<mat-select [value]="statusId"
+   (selectionChange)="onSelectionChange($event)" [compareWith]="compare"
+   matSelect required>
+  
+    @if(employeeStatuses) {
+      @for(item of employeeStatuses; track item.id){
+
+        <mat-option [value]="item.id">
+          {{ item.status }}
+        </mat-option>
+
+      }
+    }
+
+    @if (!employeeStatuses) {
+      <mat-option>Loading...</mat-option>
+    }
+      
+    </mat-select>
+    <mat-error>Status is required</mat-error>
+  </mat-form-field>
+
+
+
+
+ 
+
+
+
+
+ 

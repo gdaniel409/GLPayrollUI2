@@ -1,0 +1,44 @@
+ <div style="margin-left: 5%; width: 100%;">
+ 
+ <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
+     
+    <mat-form-field appearance="outline">
+    <mat-label>username</mat-label>
+    <input matInput formControlName="username" maxlength="45" />
+   
+    </mat-form-field>
+    <br />
+
+  <!-- Password Input -->
+    <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input formControlName="password" type="password" matInput placeholder="Enter Password" maxlength="45" />
+    
+    </mat-form-field>
+    <br />
+
+    <mat-form-field appearance="outline">
+    <mat-label>Confirm Password</mat-label>
+    <input formControlName="confirmpassword" matInput placeholder="Renter password" type="password" maxlength="45"`/>>
+    </mat-form-field>
+    <br />
+
+    <app-role-select-component 
+        #roleSelect
+        [employeeId]="employeeId"
+        [employeeNumber] = "employeeNumber"
+        [userId]= "userId"
+        [roles$]="roles$"
+        [roles]="roles"
+        >
+    </app-role-select-component>
+
+    <div class="lbl-detail">
+        <button mat-raised-button type="submit" [disabled]="loading">
+                Save
+        </button><br />
+    </div>
+
+</form>
+
+</div>

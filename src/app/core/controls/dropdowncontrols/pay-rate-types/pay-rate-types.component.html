@@ -1,0 +1,28 @@
+@let rateTypes = rateTypes$ | async;
+
+ <mat-form-field class="lbl-detail">
+    <mat-label>Rate Type</mat-label>
+    <mat-select [value] = "rateId"  
+    (selectionChange)="onSelectionChange($event)" [compareWith]="compare"
+    matSelect required>
+
+      @if(rateTypes) {
+
+        @for(item of rateTypes; track item.id){
+
+          <mat-option [value]="item.id">
+            {{ item.rateType }}
+          </mat-option>
+
+        }
+
+      }
+
+      @if (!rateTypes) {
+          <mat-option>Loading...</mat-option>
+      }
+ 
+     </mat-select>
+    <mat-error>Rate type is required</mat-error>
+
+</mat-form-field>

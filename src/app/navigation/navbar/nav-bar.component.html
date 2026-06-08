@@ -1,0 +1,21 @@
+<header>
+    <nav>
+        <ul style=" display: inline; text-decoration: none;">
+          
+            <li routerLink="/">Home&nbsp;&nbsp;&nbsp;</li>
+            
+            @if(authService.isInRole("admin, generalmanager, payrollmanager"))
+            {
+                <li routerLink="/listemployees">Employees&nbsp;&nbsp;&nbsp;</li>
+            }
+          
+        </ul>
+
+    </nav>
+
+   
+</header>
+
+
+
+
