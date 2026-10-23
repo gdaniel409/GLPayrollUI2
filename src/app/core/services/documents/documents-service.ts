@@ -18,7 +18,7 @@ export class DocumentsHttpService {
 
   getList(employeeID : number) : Observable<DocumentModel[]>{
                                                                         
-    const urlAddr : string = this.appSettings.getString("");
+    const urlAddr : string = this.appSettings.getString("documentsforemployeegetancillary");
 
     let params = new HttpParams().set('employeeId', employeeID);
     return this.http.get<DocumentModel[]>(urlAddr, {params}).pipe(
